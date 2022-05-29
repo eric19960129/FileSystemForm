@@ -35,7 +35,10 @@ namespace FileSystemForm
                  */
                 label_File.Text = System.IO.Path.GetFileName(openFileDialog.FileName);
                 FileReader fileReader = new FileReader(openFileDialog.FileName);
-                fileReader.ShowDialog();
+                if("*.png;*.jpg;*.jpeg;*.jpe;*.jfif;*.bmp;*.dib;*.gif;*.tif;*.tiff,*.txt".Contains(System.IO.Path.GetExtension(openFileDialog.FileName)))
+                    fileReader.ShowDialog();
+                else
+                    MessageBox.Show("尚未能開啟");
             }
         }
     }
